@@ -1,0 +1,8 @@
+[Unit]
+Description=Namecheap Dynamic DNS timer
+
+[Timer]
+OnCalendar=*:*
+
+[Install]
+WantedBy=timers.target

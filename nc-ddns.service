@@ -1,0 +1,15 @@
+[Unit]
+Description=Namecheap Dynamic DNS Daemon
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/nc-ddns
+Environment="HOST=@,*,www"
+Environment="DOMAIN=example.com"
+LoadCredentialEncrypted=namecheap-ddns:/root/namecheap.cred # use set-passwd script to populate
+
+[Install]
+WantedBy=multi-user.target
+
